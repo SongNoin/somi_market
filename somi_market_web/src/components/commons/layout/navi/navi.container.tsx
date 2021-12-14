@@ -3,9 +3,9 @@ import axios from "axios";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-
 export default function Navi() {
   const router = useRouter();
+
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
@@ -25,5 +25,5 @@ export default function Navi() {
   function onClickMoveToList(event) {
     router.push(`/list/${event.target.id}`);
   }
-  return <NaviUI category={category} onClickMoveToList={onClickMoveToList}/>;
+  return <NaviUI category={category} onClickMoveToList={onClickMoveToList} />;
 }

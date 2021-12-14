@@ -6,6 +6,16 @@ import DetailUI from "./detail.presenter";
 export default function Detail() {
   const router = useRouter();
   const [detail, setDetail] = useState([]);
+  const [optionOne, setOptionOne] = useState("");
+  const [optionTwo, setOptionTwo] = useState("");
+
+  const handleChangeOne = (event) => {
+    setOptionOne(event.target.value);
+  };
+
+  const handleChangeTwo = (event) => {
+    setOptionTwo(event.target.value);
+  };
   const prefix = router.query.productId;
   useEffect(() => {
     const getDetail = async () => {
@@ -20,6 +30,14 @@ export default function Detail() {
     };
     getDetail();
   }, [prefix]);
-
-  return <DetailUI detail={detail} />;
+  console.log(detail);
+  return (
+    <DetailUI
+      detail={detail}
+      optionOne={optionOne}
+      optionTwo={optionTwo}
+      handleChangeOne={handleChangeOne}
+      handleChangeTwo={handleChangeTwo}
+    />
+  );
 }

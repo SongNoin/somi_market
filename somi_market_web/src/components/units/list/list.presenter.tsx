@@ -37,7 +37,9 @@ export default function ListUI(props) {
                   )}
                   {el.originalPrice === el.ssomeePrice ? (
                     <PriceWrapper>
-                      <OriginalPrice>{el.originalPrice} 원</OriginalPrice>
+                      <OriginalPrice>
+                        {Number(el.originalPrice).toLocaleString("ko-KR")} 원
+                      </OriginalPrice>
                     </PriceWrapper>
                   ) : (
                     <PriceWrapper>
@@ -46,9 +48,11 @@ export default function ListUI(props) {
                         Math.floor((el.ssomeePrice / el.originalPrice) * 100)
                       } %`}</Discount>
                       <DiscountOriginalPrice>
-                        {el.originalPrice}
+                        {Number(el.originalPrice).toLocaleString("ko-KR")}
                       </DiscountOriginalPrice>
-                      <SsomiPrice>{el.ssomeePrice} 원</SsomiPrice>
+                      <SsomiPrice>
+                        {Number(el.ssomeePrice).toLocaleString("ko-KR")} 원
+                      </SsomiPrice>
                     </PriceWrapper>
                   )}
                 </ProductBox>
