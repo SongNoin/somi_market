@@ -20,7 +20,13 @@ export default function List() {
       }
     };
     getProducts();
-  }, []);
-  console.log(products);
-  return <ListUI products={products} />;
+  }, [categoryId]);
+
+  function onClickMoveToDetail(event) {
+    router.push(`/detail/${event.currentTarget.id}`);
+  }
+  if (!products) setProducts([]);
+  return (
+    <ListUI products={products} onClickMoveToDetail={onClickMoveToDetail} />
+  );
 }

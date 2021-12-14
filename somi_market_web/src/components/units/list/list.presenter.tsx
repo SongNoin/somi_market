@@ -1,9 +1,64 @@
+import {
+  Wrapper,
+  ProductListWrapper,
+  PriceWrapper,
+  ProductBox,
+  ProductImage,
+  SoldoutProductName,
+  ProductName,
+  OriginalPrice,
+  Soldout,
+  Discount,
+  DiscountOriginalPrice,
+  SsomiPrice,
+} from "./list.styles";
+
 export default function ListUI(props) {
   return (
     <>
-      {props.products.map((el) => (
-        <div key={el.prefix}>{el.name}</div>
-      ))}
+      <Wrapper>
+        {props.products[0] ? (
+          <ProductListWrapper>
+            {props.products.map((el) => (
+              <>
+                <ProductBox
+                  key={el.prefix}
+                  id={el.prefix}
+                  onClick={props.onClickMoveToDetail}
+                >
+                  <ProductImage src={el.mainImage} />
+                  {el.soldOut ? (
+                    <>
+                      <SoldoutProductName>{el.name}</SoldoutProductName>
+                      <Soldout> [품절]</Soldout>
+                    </>
+                  ) : (
+                    <ProductName>{el.name}</ProductName>
+                  )}
+                  {el.originalPrice === el.ssomeePrice ? (
+                    <PriceWrapper>
+                      <OriginalPrice>{el.originalPrice} 원</OriginalPrice>
+                    </PriceWrapper>
+                  ) : (
+                    <PriceWrapper>
+                      <Discount>{`${
+                        100 -
+                        Math.floor((el.ssomeePrice / el.originalPrice) * 100)
+                      } %`}</Discount>
+                      <DiscountOriginalPrice>
+                        {el.originalPrice}
+                      </DiscountOriginalPrice>
+                      <SsomiPrice>{el.ssomeePrice} 원</SsomiPrice>
+                    </PriceWrapper>
+                  )}
+                </ProductBox>
+              </>
+            ))}
+          </ProductListWrapper>
+        ) : (
+          <div> 상품이없습니다. </div>
+        )}
+      </Wrapper>
     </>
   );
 }
