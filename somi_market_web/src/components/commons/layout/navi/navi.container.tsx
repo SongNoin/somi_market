@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 
 export default function Navi() {
   const router = useRouter();
+  const isActive = router.query.id;
 
   const [category, setCategory] = useState([]);
 
@@ -25,5 +26,12 @@ export default function Navi() {
   function onClickMoveToList(event) {
     router.push(`/list/${event.target.id}`);
   }
-  return <NaviUI category={category} onClickMoveToList={onClickMoveToList} />;
+
+  return (
+    <NaviUI
+      isActive={isActive}
+      category={category}
+      onClickMoveToList={onClickMoveToList}
+    />
+  );
 }

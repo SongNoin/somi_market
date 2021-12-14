@@ -23,7 +23,7 @@ export default function List() {
   }, [categoryId]);
 
   function onClickMoveToDetail(event) {
-    router.push(`/detail/${event.currentTarget.id}`);
+    router.push(`/list/${categoryId}/detail/${event.currentTarget.id}`);
   }
   if (!products) setProducts([]);
   return (
