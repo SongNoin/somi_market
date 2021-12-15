@@ -42,6 +42,18 @@ export default function Detail() {
       alert("이미 장바구니에 담긴 상품입니다!");
       return;
     }
+    if (detail.options[0]?.options[0]) {
+      if (optionOne === "") {
+        alert("옵션을 선택해주세요!");
+        return;
+      }
+    }
+    if (detail.options[1]?.options[0]) {
+      if (optionTwo === "") {
+        alert("옵션을 선택해주세요!");
+        return;
+      }
+    }
 
     const newEl = { ...detail };
     newEl.optionone = optionOne;
@@ -53,6 +65,10 @@ export default function Detail() {
     alert("장바구니에 담았습니다!");
   };
 
+  function onClickMoveToCart() {
+    router.push("/cart");
+  }
+
   return (
     <DetailUI
       detail={detail}
@@ -61,6 +77,7 @@ export default function Detail() {
       handleChangeOne={handleChangeOne}
       handleChangeTwo={handleChangeTwo}
       onClickAddCart={onClickAddCart}
+      onClickMoveToCart={onClickMoveToCart}
     />
   );
 }

@@ -20,6 +20,7 @@ import {
   ContentWrapper,
   ContentTitle,
   Content,
+  CartStickyButton,
 } from "./detail.styles";
 import Dompurify from "dompurify";
 import InputLabel from "@mui/material/InputLabel";
@@ -80,7 +81,7 @@ export default function DetailUI(props) {
             <InfoFooter>
               {props.detail.options?.length > 0 && (
                 <OptionWrapper>
-                  {props.detail.options[1]?.options && (
+                  {props.detail.options[0]?.options && (
                     <FormControl sx={{ m: 1, minWidth: 150 }}>
                       <InputLabel id="option1">
                         {props.detail.options[0].optionCategoryName}
@@ -141,6 +142,7 @@ export default function DetailUI(props) {
           )}
         </ContentWrapper>
       </Wrapper>
+      <CartStickyButton onClick={props.onClickMoveToCart}>🛒</CartStickyButton>
     </>
   );
 }

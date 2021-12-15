@@ -227,3 +227,21 @@ export const Content = styled.div`
 
   margin-top: 30px;
 `;
+
+export const CartStickyButton = styled.div`
+  position: sticky;
+  bottom: 20px;
+  left: 1700px;
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
+
+  box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+  cursor: pointer;
+`;

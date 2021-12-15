@@ -5,6 +5,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  margin-bottom: 100px;
 `;
 
 export const CategoryWrapper = styled.div`
@@ -14,10 +16,12 @@ export const CategoryWrapper = styled.div`
   justify-content: center;
 `;
 export const Category = styled.div`
+  font-family: Jua;
+
   height: 20px;
   margin: 10px;
-  font-size: 15px;
+  font-size: 18px;
   color: ${(props) =>
-    props.isActive === String(props.el.id) ? "red" : "#normal"};
+    props.isActive === String(props.el.id) ? "#707dd4;" : "#normal"};
   cursor: pointer;
 `;

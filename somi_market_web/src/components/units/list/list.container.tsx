@@ -25,8 +25,16 @@ export default function List() {
   function onClickMoveToDetail(event) {
     router.push(`/list/${categoryId}/detail/${event.currentTarget.id}`);
   }
+
+  function onClickMoveToCart() {
+    router.push("/cart");
+  }
   if (!products) setProducts([]);
   return (
-    <ListUI products={products} onClickMoveToDetail={onClickMoveToDetail} />
+    <ListUI
+      products={products}
+      onClickMoveToDetail={onClickMoveToDetail}
+      onClickMoveToCart={onClickMoveToCart}
+    />
   );
 }

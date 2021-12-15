@@ -14,4 +14,8 @@ export const globalStyles = css`
     font-family: "NotoSans-Bold"; // 폰트이름
     src: url("/fonts/NotoSansKR-Bold.otf"); // 폰트위치
   }
+  @font-face {
+    font-family: "Jua";
+    src: url("/fonts/BMJUA_ttf.ttf");
+  }
 `;

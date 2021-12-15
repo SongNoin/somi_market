@@ -11,6 +11,10 @@ import {
   Discount,
   DiscountOriginalPrice,
   SsomiPrice,
+  CartStickyButton,
+  NoProductWrapper,
+  NoProductEmoji,
+  NoProductContent,
 } from "./list.styles";
 
 export default function ListUI(props) {
@@ -60,9 +64,13 @@ export default function ListUI(props) {
             ))}
           </ProductListWrapper>
         ) : (
-          <div> 상품이없습니다. </div>
+          <NoProductWrapper>
+            <NoProductEmoji>🙏</NoProductEmoji>
+            <NoProductContent>판매중인 상품이 없습니다.</NoProductContent>
+          </NoProductWrapper>
         )}
       </Wrapper>
+      <CartStickyButton onClick={props.onClickMoveToCart}>🛒</CartStickyButton>
     </>
   );
 }
