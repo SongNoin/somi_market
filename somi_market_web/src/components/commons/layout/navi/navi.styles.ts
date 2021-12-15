@@ -5,6 +5,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #707dd4;
 
   margin-bottom: 100px;
 `;
@@ -22,6 +23,6 @@ export const Category = styled.div`
   margin: 10px;
   font-size: 18px;
   color: ${(props) =>
-    props.isActive === String(props.el.id) ? "#707dd4;" : "#normal"};
+    props.isActive === String(props.el.id) ? "white" : "#normal"};
   cursor: pointer;
 `;
