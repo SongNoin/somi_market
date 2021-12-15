@@ -121,7 +121,9 @@ export default function DetailUI(props) {
                 </OptionWrapper>
               )}
               <ButtonWrapper>
-                <DetailButton>장바구니에 담기</DetailButton>
+                <DetailButton onClick={props.onClickAddCart}>
+                  장바구니에 담기
+                </DetailButton>
                 <DetailButton>구매하기</DetailButton>
               </ButtonWrapper>
             </InfoFooter>

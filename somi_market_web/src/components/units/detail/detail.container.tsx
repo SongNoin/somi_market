@@ -9,13 +9,6 @@ export default function Detail() {
   const [optionOne, setOptionOne] = useState("");
   const [optionTwo, setOptionTwo] = useState("");
 
-  const handleChangeOne = (event) => {
-    setOptionOne(event.target.value);
-  };
-
-  const handleChangeTwo = (event) => {
-    setOptionTwo(event.target.value);
-  };
   const prefix = router.query.productId;
   useEffect(() => {
     const getDetail = async () => {
@@ -30,7 +23,36 @@ export default function Detail() {
     };
     getDetail();
   }, [prefix]);
-  console.log(detail);
+
+  const handleChangeOne = (event) => {
+    setOptionOne(event.target.value);
+  };
+
+  const handleChangeTwo = (event) => {
+    setOptionTwo(event.target.value);
+  };
+
+  const onClickAddCart = () => {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let isExists = false;
+    cart.forEach((cartEl) => {
+      if (detail.prefix === cartEl.prefix) isExists = true;
+    });
+    if (isExists) {
+      alert("이미 장바구니에 담긴 상품입니다!");
+      return;
+    }
+
+    const newEl = { ...detail };
+    newEl.optionone = optionOne;
+    newEl.optiontwo = optionTwo;
+    delete newEl.__typename;
+    cart.push(newEl);
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("장바구니에 담았습니다!");
+  };
+
   return (
     <DetailUI
       detail={detail}
@@ -38,6 +60,7 @@ export default function Detail() {
       optionTwo={optionTwo}
       handleChangeOne={handleChangeOne}
       handleChangeTwo={handleChangeTwo}
+      onClickAddCart={onClickAddCart}
     />
   );
 }
